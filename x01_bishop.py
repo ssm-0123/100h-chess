@@ -1,5 +1,16 @@
 #!python3
 
+def makecoord():
+  a = ['a','b','c','d','e','f','g','h']
+  coord = []
+  for i in range(1,9):
+    templist = []
+    for aa in a:
+      templist.append(aa+str(i))
+    coord.append(templist)
+  return coord
+
+
 def bishop(square):
   """
   input:
@@ -9,8 +20,54 @@ def bishop(square):
   return:
   list of possible squares that the bishop can move to:
   """
+  coord = makecoord()
+  for a in coord:
+    for b in a:
+      if b == square :
+        ver = coord.index(a)
+        hor = a.index(b)
   
-  return None
+  print(ver,hor)
+  
+  answer = []
+  vera = ver
+  hora = hor
+  while True:
+    ver = ver+1
+    hor = hor+1
+    if ver >= 8 or hor >= 8:
+      break
+    answer.append(coord[ver][hor])
+  while True:
+    ver = ver-1
+    hor = hor-1
+    if ver <= -1  or hor <= -1:
+      break
+    if coord[ver][hor] not in answer:
+      answer.append(coord[ver][hor])
+  
+  while True:
+    vera = vera+1
+    hora = hora-1
+    if vera >= 8 or hora <= -1:
+      break
+    if coord[vera][hora] not in answer:
+      answer.append(coord[vera][hora])
+  while True:
+    vera = vera-1
+    hora = hora+1
+    if vera <= -1 or hora >= 8:
+      break
+    if coord[vera][hora] not in answer:
+      answer.append(coord[vera][hora])
+  answer.remove(square)
+  answer.sort()
+  print(answer)
+
+bishop("f3")
+
+
+
 
 
 def main():
