@@ -1,3 +1,9 @@
+
+import x03_bishop
+import x03_rook
+
+
+
 def queen(square):
   """
   input:
@@ -7,8 +13,12 @@ def queen(square):
   return:
   list of possible squares that the queen can move to:
   """
-  
-  return None
+  a = x03_bishop.bishop(square)
+  b = x03_rook.rook(square)
+
+  answer = a + b
+
+  return answer
 
 
 def main():
