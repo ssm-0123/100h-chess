@@ -1,5 +1,17 @@
 #!python3
 
+def makecoord():
+  a = ['a','b','c','d','e','f','g','h']
+  coord = []
+  for i in range(1,9):
+    templist = []
+    for aa in a:
+      templist.append(aa+str(i))
+    coord.append(templist)
+  return coord
+
+
+
 def rook(square):
   """
   input:
@@ -9,9 +21,21 @@ def rook(square):
   return:
   list of possible squares that the rook can move to:
   """
-  
-  return None
+  coord = makecoord()
+  for a in coord:
+    for b in a:
+      if b == square :
+        ver = coord.index(a)
+        hor = a.index(b)
 
+  answer = []
+  for i in range(0,8):
+    answer.append(coord[ver][i])
+    answer.append(coord[i][hor])
+  answer.remove(square)
+  answer.remove(square)
+  answer.sort()
+  return answer
 
 def main():
   myList = rook('f3')

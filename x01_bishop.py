@@ -26,9 +26,7 @@ def bishop(square):
       if b == square :
         ver = coord.index(a)
         hor = a.index(b)
-  
-  print(ver,hor)
-  
+
   answer = []
   vera = ver
   hora = hor
@@ -69,7 +67,7 @@ bishop("f3")
 
 
 
-
+"""
 def main():
   myList = bishop('f3')
   myList.sort()
@@ -80,3 +78,4 @@ def main():
 
 if __name__ == "__main__":
   main()
+"""
