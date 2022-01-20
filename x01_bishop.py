@@ -60,14 +60,12 @@ def bishop(square):
       answer.append(coord[vera][hora])
   answer.remove(square)
   answer.sort()
-  print(answer)
-
-bishop("f3")
+  return answer
 
 
 
 
-"""
+
 def main():
   myList = bishop('f3')
   myList.sort()
@@ -78,4 +76,3 @@ def main():
 
 if __name__ == "__main__":
   main()
-"""
